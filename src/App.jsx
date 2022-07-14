@@ -6,6 +6,55 @@ import './global.css';
 
 import styles from './App.module.css';
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/lucas-lourencoo.png',
+      name: 'Lucas Lourenço',
+      role: 'Web Developer',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      {
+        type: 'paragraph',
+        content:
+          'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz',
+      },
+      {
+        type: 'paragraph',
+        content:
+          'no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
+      },
+      { type: 'link', content: 'jane.design/doctorcare</a>' },
+    ],
+    publishedAt: new Date('2022-07-24 20:00:00'),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/lucas-lourencoo.png',
+      name: 'Lucas Mendonça',
+      role: 'Web Developer',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      {
+        type: 'paragraph',
+        content:
+          'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz',
+      },
+      {
+        type: 'paragraph',
+        content:
+          'no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
+      },
+      { type: 'link', content: 'jane.design/doctorcare</a>' },
+    ],
+    publishedAt: new Date('2022-07-10 20:00:00'),
+  },
+];
+
 export function App() {
   return (
     <div>
@@ -14,11 +63,15 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author='Lucas Lourenço'
-            content='Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic itaque dolores aliquam, fugiat aut facilis, corporis voluptatum debitis doloremque nesciunt iure nam voluptate numquam quasi sit, delectus dolore quibusdam molestiae.'
-          />
-          <Post />
+          {posts.map((post) => {
+            return (
+              <Post
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            );
+          })}
         </main>
       </div>
     </div>
