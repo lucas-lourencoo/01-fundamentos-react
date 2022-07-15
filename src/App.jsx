@@ -26,7 +26,7 @@ const posts = [
         content:
           'no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
       },
-      { type: 'link', content: 'jane.design/doctorcare</a>' },
+      { type: 'link', content: 'jane.design/doctorcare' },
     ],
     publishedAt: new Date('2022-07-24 20:00:00'),
   },
@@ -69,6 +69,7 @@ export function App() {
                 author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}
+                key={post.id}
               />
             );
           })}
